@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 전체 화면을 flex 컨테이너로 설정하여 이미지들을 세로로 중앙 정렬 */
+    body {
+            display: flex;
+            justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center; /* 수직 가운데 정렬 */
+            margin: 0; /* 기본 margin 제거 */
+            background-color: #f0f0f0; /* 배경색 */
+            padding: 40px;
+        }
+
+        /* 이미지 컨테이너 */
+        #img-wrap {
+            display: flex;
+            flex-direction: column; /* 세로로 배치 */
+            justify-content: center;
+            align-items: center;
+            width: 70%; /* 이미지 컨테이너 너비 */
+            max-width: 800px; /* 최대 너비 제한 */
+            gap: 30px;
+        }
+
+        /* 이미지 크기 */
+        img {
+            width: 100%; /* 이미지가 부모 div에 맞게 100% 크기 */
+        }
+</style>
+
+
+<body>
+    <div id="img-wrap">
+    </div>
+
+    <script>
+        const imgWrap = document.getElementById('img-wrap');
+
+        for (let i = 1; i <= 10; i++) {
+            const imgDiv = document.createElement('div');  // 새 div 생성
+            imgDiv.classList.add('img2');  // 클래스 'img2' 추가
+
+            const imgElement = document.createElement('img');  // 새 img 요소 생성
+            imgElement.src = `img/250314_링크트리스크롤${String(i).padStart(2, '0')}.jpg`;  // 이미지 경로 동적으로 변경
+            imgElement.alt = `Image ${i}`;  // 이미지의 alt 텍스트
+
+            imgDiv.appendChild(imgElement);  // img 요소를 img2 div에 추가
+            imgWrap.appendChild(imgDiv);  // img2 div를 img-wrap에 추가
+        }
+    </script>
+</body>
+
+</html>
